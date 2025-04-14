@@ -37,9 +37,9 @@ body{
   margin: 0;
 
   text-align: center;
-  color: rgb(28, 5, 90);
+  color: white;
 
-  font-family: "Nova Square", sans-serif;
+  font-family: "Jersey 25", sans-serif;
   /* font-family:Bahnschrift, Comic Sans MS; */
   font-size: 20px
 }
@@ -56,7 +56,10 @@ body{
 }
 
 .navigation{
-  background-color: rgb(28, 5, 90);
+  /* background-color: rgb(28, 5, 90); */
+  background-color: #171615;
+
+  box-shadow: 0px 10px #131212a4;
 
   flex: auto;
   padding-top: 3%;
@@ -93,6 +96,10 @@ body{
   z-index: 1;
 }
 
+#Level02 .section-title{
+  text-shadow: 0 6px 8px black
+}
+
 .profile{
   /* display: flex; */
   justify-content: space-around;
@@ -105,65 +112,49 @@ body{
   flex: 3;
   text-align: center;
 
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.5);
+  /* border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5); */
+
+  border-style: solid;
+  border-width: 10px ;
+  border-color: #171615;
+
+  
+  background-color: #131212;
 }
+
+#lvl02-atributtes div{
+  width: 100%;
+}
+
 
 .attribute {
   margin-bottom: 15px;
-  text-align: left;
-  width: 100%;
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
 
-  font-weight: bold;
+  text-align: left;
+
+  width: 100%;
+  /* max-width: 300px; */
+
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .rating-bar {
   width: 100%;
   height: 20px;
+
   background-color: rgba(255, 255, 255, 0.2);
-  border: 2px solid white;
-  border-radius: 5px;
-  overflow: hidden;
+
+  border: 2px solid #171615;
+
   margin-top: 5px;
 }
 
 .fill {
   height: 100%;
   background: linear-gradient(to right, #ffc107, #ff5722);
-  border-radius: 3px 0 0 3px;
-}
 
-.attribute-pixel {
-  margin-bottom: 20px;
-  text-align: left;
-  width: 100%;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
-
-  font-size: 14px;
-}
-
-.pixel-bar {
-  display: flex;
-  gap: 4px;
-  margin-top: 5px;
-}
-
-.pixel {
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  border: 2px solid #ccc;
-  box-sizing: border-box;
-}
-
-.pixel.filled {
-  background-color: #ffc107;
-  border-color: #ff9800;
 }
 
 #lvl02-image{
@@ -172,7 +163,11 @@ body{
   margin-left: 2%;
   margin-right: 2%;
 
-  border-radius: 25px;
+  border-style: solid;
+  border-width: 10px ;
+  border-color: #171615;
+
+  /* border-radius: 25px; */
 }
 
 #lvl02-image img{
@@ -180,7 +175,7 @@ body{
   max-width: 1000px;
   height: auto;
 
-  border-radius: 25px;
+  /* border-radius: 25px; */
 }
 
 #lvl02-description{
@@ -188,13 +183,32 @@ body{
   flex-wrap: wrap;
   text-align: center;
 
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+
+  /* border-radius: 25px; */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+
+  border-style: solid;
+  border-width: 10px ;
+  border-color: #171615;
+
+  
+  background-color: #131212;
 }
 
 #lvl02-description div{
   width: 100%;
+}
 
+#lvl02-description div span{
+  margin-left: 5%;
+}
+
+#lvl02-description .container .row div{
+  margin-left: 5%;
+  margin-right: 5%;
+
+  text-align: justify;
 }
 
 #lvl02-description-character-quote{
@@ -206,72 +220,88 @@ body{
 
 /* quests - Level03 */
 
-/* #Level03{
+#Level03{
   width: 100%; 
   padding-top: 10%;
   padding-bottom: 10%;
-  background-color: rgb(14, 29, 95);
+
+  align-items: center;
+
+  /* background-color: rgb(14, 29, 95); */
+  background-color: #171615;
+  /* box-shadow: 0px 10px #ff0000; */
 
   color: white;
 
-  z-index: 2;
-} */
+  /* display: flex;
+  flex-direction: column; */
 
-#Level03 {
-  padding: 4rem 2rem;
-  background-color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  z-index: 2;
 }
 
 #Level03 .map-container {
   width: 100%;
   max-width: 1000px;
-  margin-bottom: 2rem;
+  margin-bottom: 2%;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #Level03 .map-container img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
 }
 
-/* Container das duas áreas (acadêmica e profissional) */
 #Level03 .info-container {
+  margin-left: auto;
+  margin-right: auto;
+  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 2%;
   width: 100%;
-  max-width: 1000px;
+
+  max-width: 80%;
   flex-wrap: wrap;
 }
 
 /* Cada coluna */
 #Level03 .academic,
-#Level03 .professional {
+#Level03 .profesional {
   flex: 1;
+
   min-width: 300px;
-  background-color: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ccac70;
+
+  border-style: dashed;
+  border-width: 5px ;
+  border-color: #371907;
+
+  /* padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
 }
 
 /* Título das colunas */
 #Level03 .academic h3,
-#Level03 .professional h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 0.5rem;
+#Level03 .profesional h3 {
+
+  color: #171615;
+
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-bottom: 5px dashed #371907;
+
+  padding-bottom: 2%;
 }
 
 /* Tópicos dentro de cada área */
 #Level03 .academic .entry,
-#Level03 .professional .entry {
+#Level03 .profesional .entry {
   margin-bottom: 1.25rem;
 }
 
@@ -302,49 +332,6 @@ body{
   color: white;
   text-shadow: 0 6px 8px black
 }
-
-/* .skill-tree {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 20px;
-  margin: 0 auto;
-  width: fit-content;
-}
-
-.skill-branch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.skill-subbranch {
-  display: flex;
-  gap: 40px;
-  margin-top: 20px;
-}
-
-.skill-node {
-  background-color: rgb(28, 5, 90);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #fff;
-  text-align: center;
-  min-width: 100px;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 12px;
-  box-shadow: 0 0 5px #fff;
-}
-
-.skill-line.vertical {
-  width: 2px;
-  height: 20px;
-  background-color: white;
-  margin: 10px 0;
-} */
 
 .skill-tree-wrapper {
   display: flex;
@@ -454,10 +441,19 @@ body{
 /* footer */
 
 footer{
-  background-color: rgb(28, 5, 90);
+  /* background-color: rgb(28, 5, 90); */
+  background-color: #171615;
+  /* box-shadow: 0px -10px #3d3b3896; */
+  color: white;
 
   padding-top: 5%;
   padding-bottom: 5%;
+}
+
+#footer-div{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 
 footer a{
