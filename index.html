@@ -1,251 +1,412 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luiz Eduardo M. Mariz | VR & Unity Developer</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-highlight: #58a6ff;
+            --accent: #238636;
+        }
 
-    <link rel="stylesheet" href="css/Style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-    <title>Mariz's Portfolio</title>
-  </head>
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-  <body>
-    <header id="Level01">
+        /* Botão de Idioma */
+        .lang-container {
+            text-align: right;
+            padding: 10px 20px;
+        }
+
+        .lang-btn {
+            background-color: transparent;
+            color: var(--text-highlight);
+            border: 1px solid var(--text-highlight);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background-color: var(--text-highlight);
+            color: var(--bg-color);
+        }
+
+        /* Hero / Header */
+        header {
+            padding: 40px 0 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #30363d;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+        }
+
+        header h2 {
+            color: var(--text-highlight);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 0 0 20px 0;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--text-highlight);
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .section-title {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Grid de Projetos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-container {
+            width: 100%;
+            background-color: #000;
+            aspect-ratio: 16 / 9; 
+            overflow: hidden;
+        }
+
+        /* Aplica o mesmo estilo de preenchimento para vídeo e imagem */
+        .video-container video, 
+        .video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background-color: rgba(88, 166, 255, 0.1);
+            color: var(--text-highlight);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-item {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Oculta os textos em inglês por padrão */
+        .lang-en {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-container container">
+        <button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">EN / PT-BR</button>
+    </div>
+
+    <header>
         <div class="container">
-            <div class="title">
-                <div>
-                    <h2>WELCOME TO</h2>
-                </div>
-                <div>
-                    <h1> <span>LUIZ EDUARDO M. MARIZ</span> 's</h1>
-                </div>
-                <div>
-                    <h1>PORTFOLIO</h1>
-                </div>
+            <h1>Luiz Eduardo M. Mariz</h1>
+            <h2>
+                <span class="lang-pt">Desenvolvedor VR & Unity</span>
+                <span class="lang-en">VR & Unity Developer</span>
+            </h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/luiz-eduardo-mariz-1476a11b5/" target="_blank">LinkedIn</a>
+                <a href="mailto:luizedumariz@gmail.com">luizedumariz@gmail.com</a>
+                <a href="https://github.com/luizzmariz" target="_blank">GitHub</a>
             </div>
-        </div>
-        
-        <div class="container">
-            <nav class="navigation">
-                <ul>
-                    <li><a href="#Level02">PROFILE</a></li>
-                    <li><a href="#Level03">QUESTS</a></li>
-                    <li><a href="#Level04">SKILL TREE</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
-    <section id="Level02">
-        <div class="container section-title">
-            <h2 style="font-size: 40px;">PROFILE</h2>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-pt">Perfil Profissional</span>
+                <span class="lang-en">Professional Profile</span>
+            </h2>
+            <p style="font-size: 1.1rem; max-width: 800px;">
+                <span class="lang-pt">Desenvolvedor Unity e especialista em Realidade Virtual (VR) com bacharelado em Tecnologia da Informação e especialização em Jogos Digitais (UFRN). Experiência comprovada na engenharia e entrega de experiências imersivas de alto impacto, atuando ativamente no desenvolvimento de projetos como DjembeFola e Germinarium. Competência técnica no ciclo completo de desenvolvimento, integrando lógica de programação avançada em C# com design visual e prototipagem multiplataforma utilizando Figma, Illustrator e Premiere Pro. Profissional orientado a resultados, focado na otimização de performance, arquitetura de software e resolução de problemas complexos em ambientes virtuais interativos.</span>
+                <span class="lang-en">Unity Developer and Virtual Reality (VR) specialist with a Bachelor's degree in Information Technology and a minor in Digital Games (UFRN). Proven experience in engineering and delivering high-impact immersive experiences, actively participating in the development of projects such as DjembeFola and Germinarium. Technical competence in the full development cycle, integrating advanced C# programming logic with visual design and cross-platform prototyping using Figma, Illustrator, and Premiere Pro. Results-oriented professional focused on performance optimization, software architecture, and solving complex problems in interactive virtual environments.</span>
+            </p>
         </div>
-        <div class="container profile">
-            <div class="container" id="lvl02-atributtes">
-                <div class="container column">
-                    <h4 style="font-size: 25px;">ATTRIBUTES:</h4>
-                </div>
-                <div class="container column">
-                    <div class="container row">
-                        <div class="attribute">
-                            <span>CREATIVITY</span>
-                            <div class="rating-bar">
-                              <div class="fill" style="width: 90%;"></div>
-                            </div>
-                          </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-pt">Projetos em Destaque</span>
+                <span class="lang-en">Featured Projects</span>
+            </h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="video-container">
+                        <video src="./videos/DjembeFolla-video.mp4" loop muted playsinline poster="./imgs/Djembe-art.jpg"></video>
                     </div>
-                    <div class="container row">
-                        <div class="attribute">
-                            <span>LOGIC</span>
-                            <div class="rating-bar">
-                                <div class="fill" style="width: 80%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container row">
-                        <div class="attribute">
-                            <span>CHARISM</span>
-                            <div class="rating-bar">
-                                <div class="fill" style="width: 75%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container row">
-                        <div class="attribute">
-                            <span>WILL POWER</span>
-                            <div class="rating-bar">
-                                <div class="fill" style="width: 60%;"></div>
-                            </div>
+                    <div class="project-info">
+                        <h3>DjembeFola (VR & Multiplayer)</h3>
+                        <p>
+                            <span class="lang-pt">Otimização de algoritmo de movimentação de boids e reestruturação de fluxo lógico, viabilizando o port para Realidade Virtual e multiplayer online em um ciclo ágil de 5 meses.</span>
+                            <span class="lang-en">Optimization of boids movement algorithm and logic flow restructuring, enabling the port to Virtual Reality and online multiplayer in an agile 5-month cycle.</span>
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">VR</span>
+                            <span class="tech-tag">Multiplayer</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" id="lvl02-image">
-                <img src="./imgs/profile2-img.JPG" alt="Luiz Eduardo's photo">
-            </div>
-            <div class="container" id="lvl02-description">
-                <div class="container column">
-                    <div>
-                        <h4 style="font-size: 25px;">CHARACTER</h4>
+
+                <div class="project-card">
+                    <div class="video-container">
+                        <video src="./videos/Germinarium-Trailer.mp4" loop muted playsinline poster="./imgs/Banner_Germinarium.png"></video>
                     </div>
-                    <div>
-                        <h4 style="font-size: 35px;">LUIZ EDUARDO DE MEDEIROS MARIZ</h4>
-                    </div>
-                </div>
-                <div class="container column">
-                    <div class="container row">
-                        <span>NICKNAME:</span> 
-                        <div>
-                            <p>HEYSE</p>
-                        </div>
-                    </div>
-                    <div class="container row">
-                        <span>CLASS:</span> 
-                        <div>
-                            <p>GAME DEVELOPER</p>
-                        </div>
-                    </div>
-                    <div class="container row">
-                        <span>ETHNICITY:</span>
-                        <div>
-                            <p>BRAZILIAN</p>
-                        </div>
-                    </div>
-                    <div class="container row">
-                        <span>CHARACTER'S QUOTE:</span> 
-                        <div id="lvl02-description-character-quote">
-                            <p>"My career as a creator, game and story developer, animator, artist and modeler began a long time ago, 
-                                when I was still a child and found in myself the passion and desire to give shape to my ideas. 
-                                Today I'm 22 years old, I've managed to give some professional grounding to everything I've wanted to do 
-                                and I'm about to graduate from university. I want to take advantage of this time in my life to gain more 
-                                experience and get involved in projects so that I can improve my ability to create more and more."
-                            </p>
+                    <div class="project-info">
+                        <h3>Germinarium</h3>
+                        <p>
+                            <span class="lang-pt">Desenvolvimento de level design para menu interativo, programação de mecânicas de puzzles e transições de cena para elevar a coesão narrativa e a UX do usuário final.</span>
+                            <span class="lang-en">Development of level design for an interactive menu, programming of puzzle mechanics, and scene transitions to elevate narrative cohesion and final user UX.</span>
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Level Design</span>
+                            <span class="tech-tag">Game Logic</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="video-container">
+                        <video src="./videos/semiarid-fish.mp4" loop muted playsinline poster="./imgs/Semiarid-image.png"></video>
+                    </div>
+                    <div class="project-info">
+                        <h3>Semiarid Fish: Swimming in the Dry</h3>
+                        <p>
+                            <span class="lang-pt">Modelagem 3D de ativos biológicos para o projeto Barragem Gargalheiras, contribuindo para a alta fidelidade visual e imersão do ecossistema virtual.</span>
+                            <span class="lang-en">3D modeling of biological assets for the Barragem Gargalheiras project, contributing to high visual fidelity and immersion of the virtual ecosystem.</span>
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Blender</span>
+                            <span class="tech-tag">Retopology</span>
+                            <span class="tech-tag">Museum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container">
+                        <video src="./videos/Gargantua-video.mp4" loop muted playsinline poster="./imgs/Gargantua-image.png"></video>
+                    </div>
+                    <div class="project-info">
+                        <h3>Gargantua</h3>
+                        <p>
+                            <span class="lang-pt">Modelagem 3D de inimigos humanoides e elementos de cenário, criação do game design e do level design, dando forma ao projeto.</span>
+                            <span class="lang-en">3D modeling of humanoid enemies and scenario elements, creation of game design and level design, shaping the core project.</span>
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Blender</span>
+                            <span class="tech-tag">3D</span>
+                            <span class="tech-tag">Level Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container">
+                        <video src="./videos/Baroneza-video.mp4" loop muted playsinline poster="./imgs/Baroneza_art.png"></video>
+                    </div>
+                    <div class="project-info">
+                        <h3>Baroneza</h3>
+                        <p>
+                            <span class="lang-pt">Criação de sprites de personagem e artes de início, auxílio no processo de Game Design e experiência em trabalhos a curto-prazo.</span>
+                            <span class="lang-en">Creation of character sprites and start art, assisting in the Game Design process and gaining experience in short-term deliverables.</span>
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Sprite</span>
+                            <span class="tech-tag">2D</span>
+                            <span class="tech-tag">GameJam</span>
+                            <span class="tech-tag">Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container">
+                        <img src="./imgs/DubiousHero-art.png" alt="Dubious Hero">
+                    </div>
+                    <div class="project-info">
+                        <h3>Dubious Hero</h3>
+                        <p>
+                            <span class="lang-pt">Criação do Game Design e programação do fluxo principal do jogo, formulando a base do projeto.</span>
+                            <span class="lang-en">Creation of the Game Design and programming of the main game flow, formulating the foundation of the project.</span>
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Puzzle</span>
+                            <span class="tech-tag">GameJam</span>
+                            <span class="tech-tag">2D</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="Level03">
-        <div class="container section-title">
-            <h2 style="font-size: 40px;">QUESTS</h2>
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-pt">Habilidades Técnicas</span>
+                <span class="lang-en">Technical Skills</span>
+            </h2>
+            <div class="skills-container">
+                <div class="skill-item">Unity 3D</div>
+                <div class="skill-item">C#</div>
+                <div class="skill-item">C++</div>
+                <div class="skill-item">VR Development</div>
+                <div class="skill-item">Blender (3D Modeling)</div>
+                <div class="skill-item">Git / Version Control</div>
+                <div class="skill-item">Figma (UI/UX)</div>
+                <div class="skill-item">Adobe Premiere Pro</div>
+            </div>
         </div>
-
-        <div class="map-container">
-            <img src="./imgs/map.png" alt="Mapa ilustrativo das experiências">
-          </div>
-        
-          <div class="info-container">
-            <div class="academic">
-              <h3 style="font-size: 25px;">ACADEMIC</h3>
-              <div class="entry">
-                <h4>MAJOR IN INFORMATION TECHNOLOGY</h4>
-                <p>UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE (UFRN)</p>
-                <p>JANUARY 2021 - JULY 2025</p>
-              </div>
-              <div class="entry">
-                <h4>MINOR IN DIGITAL GAMES</h4>
-                <p>UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE (UFRN)</p>
-                <p>JULY 2022 - DECEMBER 2024</p>
-              </div>
-            </div>
-        
-            <div class="profesional">
-              <h3 style="font-size: 25px;">PROFESIONAL</h3>
-              <div class="entry">
-                <h4>WEB DEV AT SEUBONÉ</h4>
-                <p>FRONT-END DEVELOPER</p>
-                <p>DECEMBER 2020 - FEBRUARY 2021</p>
-              </div>
-              <div class="entry">
-                <h4>HOUSEKEEPING AT PENDRY</h4>
-                <p>HOUSEKEEPING EXPERIENCE IN A WORK AND TRAVEL PROGRAM</p>
-                <p>DECEMBER 2022 - MARCH 2023</p>
-              </div>
-              <div class="entry">
-                <h4>GAME DEVELOPER IN A COLLEGE PROJECT</h4>
-                <p>3D MODELLER AND LEVEL DESIGNER</p>
-                <p>JULY 2023 - FEBRUARY 2024</p>
-              </div>
-            </div>
-          </div>
     </section>
 
-    <section id="Level04">
-        <div class="container section-title">
-            <h2 style="font-size: 40px;">SKILL TREE</h2>
+    <footer>
+        <div class="container">
+            <p>
+                <span class="lang-pt">&copy; 2026 Luiz Eduardo M. Mariz. Todos os direitos reservados.</span>
+                <span class="lang-en">&copy; 2026 Luiz Eduardo M. Mariz. All rights reserved.</span>
+            </p>
         </div>
-        <!-- <div class="skill-tree">
-            <div class="skill-branch">
-              <div class="skill-node">Programming</div>
-              <div class="skill-line vertical"></div>
-              <div class="skill-subbranch">
-                <div class="skill-node">C#</div>
-                <div class="skill-node">Unity</div>
-                <div class="skill-node">Git</div>
-              </div>
-            </div>
-        </div> -->
-        <div class="skill-tree-wrapper">
-            <div class="skill-category" id="skill-tree1">
-              <h4 style="font-size: 25px;">SOFT SKILLS</h4>
-              <div class="skill-node">EMPATHY & COMMUNICATION</div>
-              <div class="skill-node">CREATIVE THINKING</div>
-              <div class="skill-node">PROBLEM SOLVING</div>
-              <div class="skill-node">RESILIENCE & COMPETENCE</div>
-            </div>
-          
-            <div class="skill-category" id="skill-tree2">
-              <h4 style="font-size: 25px;">TECHNICAL SKILLS</h4>
-              <div class="skill-node">GAME DESIGN</div>
-              <div class="skill-node">PROGRAMMING</div>
-              <div class="skill-node">3D MODELING</div>
-              <div class="skill-node">VIDEO EDITING</div>
-              <div class="skill-node has-children">
-                SOFTWARES
-                <div class="skill-subbranch">
-                  <div class="skill-node">UNITY</div>
-                  <div class="skill-node">BLENDER</div>
-                  <div class="skill-node">ADOBE PREMIERE</div>
-                  <div class="skill-node">MINECRAFT (DESIGN TOOL)</div>
-                </div>
-              </div>
-            </div>
-          
-            <div class="skill-category" id="skill-tree3">
-              <h4 style="font-size: 25px;">LANGUAGES</h4>
-                    <div class="skill-node">PORTUGUESE: NATIVE</div>
-                    <div class="skill-node">ENGLISH: FLUENT</div>
-                    <div class="skill-node">C++</div>
-                    <div class="skill-node">C#</div>
-                    <div class="skill-node">JAVA</div>
-                    <div class="skill-node">JAVASCRIPT</div>
-            </div>
-          </div>
-    </section>
+    </footer>
 
-  </body>
+    <script>
+        // Lógica de Tradução
+        let isEnglish = false;
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            
+            const ptElements = document.querySelectorAll('.lang-pt');
+            const enElements = document.querySelectorAll('.lang-en');
 
-  <footer>
-    <div class="container" id="footer-div">
-        <div class="item">
-            <a href="https://www.linkedin.com/in/luiz-eduardo-mariz-1476a11b5/" target="_blank">Linkedin</a>
-        </div>
-        <div class="item">
-            <p>|</p>
-        </div>
-        <div class="item">
-            <a href="https://www.instagram.com/dumarizz/?hl=pt-br" target="_blank">Instagram</a>
-        </div>
-        <div class="item">
-            <p>|</p>
-        </div>
-        <div class="item">
-            <a href="https://www.youtube.com/@casanarvore" target="_blank">Youtube</a>
-        </div>
-    </div>
-  </footer>
+            ptElements.forEach(el => {
+                el.style.display = isEnglish ? 'none' : 'inline-block';
+            });
+
+            enElements.forEach(el => {
+                el.style.display = isEnglish ? 'inline-block' : 'none';
+            });
+        }
+
+        // Lógica de reprodução de vídeo no Hover
+        document.querySelectorAll('.project-card').forEach(card => {
+            const video = card.querySelector('video');
+            
+            if (video) {
+                card.addEventListener('mouseenter', () => {
+                    video.play();
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0; // Volta o vídeo para o frame inicial
+                });
+            }
+        });
+    </script>
+</body>
 </html>
